@@ -19,9 +19,8 @@
         circle(760, 99, 160);
         ellipse(90, 290, 100, 230);
         triangle( 450, 200, 200, 530, 300, 300 );
-
-
-
+            pumpkin();
+   }
 
 function pumpkin() {
   createCanvas(400, 400);
@@ -31,9 +30,12 @@ function pumpkin() {
   fill(255, 140, 0);
   ellipse(200, 200, 150, 120);
 
-  // Side lobes
+  // extra!!pumpkin body         
   ellipse(160, 200, 80, 110);
   ellipse(240, 200, 80, 110);
+  fill('black');
+  triangle(140, 210, 160, 170, 180, 210);
+  triangle(220, 210, 240, 170, 260, 210);
 
   // Pumpkin stem
   fill(80, 50, 20);
