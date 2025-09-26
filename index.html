@@ -28,14 +28,18 @@ function pumpkin() {
 
   // Main pumpkin body
   fill(255, 140, 0);
-  ellipse(200, 200, 150, 120);
+  fill(0,0,0)
+  arc(50, 50, 70, 80, PI/6, 5*PI/6 , CHORD);
 
-  // extra!!pumpkin body         
-  ellipse(160, 200, 80, 110);
-  ellipse(240, 200, 80, 110);
+  // extra!!pumpkin body  
+  fill(255, 140, 0);       
+  ellipse(160, 230, 80, 150);
+  ellipse(240, 230, 80, 150);
+  ellipse(200, 230, 100, 160);
   fill('black');
   triangle(140, 210, 160, 170, 180, 210);
   triangle(220, 210, 240, 170, 260, 210);
+  triangle(180, 220, 200, 190, 220, 220);
 
   // Pumpkin stem
   fill(80, 50, 20);
