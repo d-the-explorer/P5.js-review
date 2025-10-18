@@ -2,51 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"> </script>
+    <title>Simple Pumpkin Scene</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
 </head>
 <body>
-     <script>
+    <script>
 
+     let treeX; 
+     let treeY;
+     let cloudX = 0;
+     let cloudY = 140;
+        function setup() {
+            createCanvas(1000, 1000);
+            background(100, 180, 255); // light sky
 
+        }
+        function draw() {
+          background(100, 180, 255); // light sky
+         fill('white');  
+         ellipse(cloudX,cloudY, 80, 100);
+         cloudX += 1;
+         if( cloudX > 1000 ) {
+               cloudX = 0;    
+         }
+                                    
+           // Grass (green triangle)
+            fill(0, 200, 0);
+            triangle(0, 1000, 500, 800, 1000, 1000);
 
-   function setup(){
-        createCanvas(1000,1000);
-        background('pink');
-        square(30, 20, 120);
-        rect( 400, 40, 100, 150);
-        circle(760, 99, 160);
-        ellipse(90, 290, 100, 230);
-        triangle( 450, 200, 200, 530, 300, 300 );
-            pumpkin();
-   }
+            // Tree
+            fill(101, 67, 33); // brown trunk
+            treeX = 200; 
+            treeY = 780;
+            rect(treeX, treeY, 40, 120);
 
-function pumpkin() {
-  createCanvas(400, 400);
-  background(220);
+            fill(34, 139, 34); // green leaves
+            ellipse(treeX + 20, treeY - 20, 100, 100);
+            ellipse(treeX - 10, treeY - 40, 80, 80);
+            ellipse(treeX + 50 , treeY - 40, 80, 80);
 
-  // Main pumpkin body
-  fill(255, 140, 0);
-  fill(0,0,0)
-  
+            // Pumpkin
+            fill(255, 140, 0); // orange
+            noStroke();
+            ellipse(660, 720, 80, 150);
+            ellipse(740, 720, 80, 150);
+            ellipse(700, 720, 100, 160);
 
-  // extra!!pumpkin body  
-  fill(255, 140, 0);       
-  ellipse(160, 230, 80, 150);
-  ellipse(240, 230, 80, 150);
-  ellipse(200, 230, 100, 160);
-  fill('black');
-  triangle(140, 210, 160, 170, 180, 210);
-  triangle(220, 210, 240, 170, 260, 210);
-  triangle(180, 220, 200, 190, 220, 220);
-  arc(200, 230, 70, 80, PI/6, 5*PI/6 , CHORD);
+            // Face
+            fill(0); // black
+            triangle(640, 700, 660, 660, 680, 700); // left eye
+            triangle(720, 700, 740, 660, 760, 700); // right eye
+            triangle(680, 710, 700, 680, 720, 710); // nose
+            arc(700, 740, 70, 80, PI / 6, 5 * PI / 6, CHORD); // mouth
 
-  // Pumpkin stem
-  fill(80, 50, 20);
-  rect(190, 140, 20, 40, 10);
-}
-     
-     </script>
+            // Stem
+            fill(80, 50, 20);
+            rect(690, 630, 20, 40, 10);
+       }
+    </script>
 </body>
 </html>
