@@ -1,64 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Simple Pumpkin Scene</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Simple Pumpkin Scene</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
 </head>
 <body>
-    <script>
+  <script>
+    let treeX; 
+    let treeY;
+    let cloudX = 0;
+    let cloudY = 140;
+    let pumpkinX; 
+    let pumpkinY;
+    let red = 100;
+    let green = 180;
+    let blue = 255;
 
-     let treeX; 
-     let treeY;
-     let cloudX = 0;
-     let cloudY = 140;
-        function setup() {
-            createCanvas(1000, 1000);
-            background(100, 180, 255); // light sky
+    function setup() {
+      createCanvas(1000, 1000);
+      background(red, green, blue); 
+      pumpkinX = 700;  
+      pumpkinY = 720;  
+    }
 
-        }
-        function draw() {
-          background(100, 180, 255); // light sky
-         fill('white');  
-         ellipse(cloudX,cloudY, 80, 100);
-         cloudX += 1;
-         if( cloudX > 1000 ) {
-               cloudX = 0;    
-         }
+    function draw() {
+        // clouds
+      background(red, green, blue);  
+      fill('white');  
+      ellipse(cloudX, cloudY, 80, 100);
+      ellipse(cloudX - 50, cloudY + 20, 80, 100);
+      ellipse(cloudX + 50, cloudY + 20, 80, 100);
+      ellipse(cloudX - 20, cloudY - 20, 80);
+      ellipse(cloudX + 20, cloudY - 20, 80);
+      ellipse(cloudX + 70, cloudY, 80, 100);
+      ellipse(cloudX + 120, cloudY + 20, 80, 100);
+      ellipse(cloudX + 170, cloudY + 20, 80,);
+      cloudX += 2;
+      if (cloudX > width) {
+        cloudX = 0;    
+      }
                                     
-           // Grass (green triangle)
-            fill(0, 200, 0);
-            triangle(0, 1000, 500, 800, 1000, 1000);
+      fill(0, 200, 0);
+      triangle(0, 1000, 500, 800, 1000, 1000);
 
-            // Tree
-            fill(101, 67, 33); // brown trunk
-            treeX = 200; 
-            treeY = 780;
-            rect(treeX, treeY, 40, 120);
 
-            fill(34, 139, 34); // green leaves
-            ellipse(treeX + 20, treeY - 20, 100, 100);
-            ellipse(treeX - 10, treeY - 40, 80, 80);
-            ellipse(treeX + 50 , treeY - 40, 80, 80);
+      fill(101, 67, 33); 
+      treeX = 200; 
+      treeY = 780;
+      rect(treeX, treeY, 40, 120);
 
-            // Pumpkin
-            fill(255, 140, 0); // orange
-            noStroke();
-            ellipse(660, 720, 80, 150);
-            ellipse(740, 720, 80, 150);
-            ellipse(700, 720, 100, 160);
+      fill(34, 139, 34); 
+      ellipse(treeX + 20, treeY - 20, 100, 100);
+      ellipse(treeX - 10, treeY - 40, 80, 80);
+      ellipse(treeX + 50 , treeY - 40, 80, 80);
 
-            // Face
-            fill(0); // black
-            triangle(640, 700, 660, 660, 680, 700); // left eye
-            triangle(720, 700, 740, 660, 760, 700); // right eye
-            triangle(680, 710, 700, 680, 720, 710); // nose
-            arc(700, 740, 70, 80, PI / 6, 5 * PI / 6, CHORD); // mouth
+      fill(255, 140, 0); 
+      noStroke();
+      ellipse(pumpkinX - 40, pumpkinY, 80, 150);
+      ellipse(pumpkinX + 40, pumpkinY, 80, 150);
+      ellipse(pumpkinX, pumpkinY, 100, 160);
 
-            // Stem
-            fill(80, 50, 20);
-            rect(690, 630, 20, 40, 10);
-       }
-    </script>
+      fill(0); 
+      triangle(pumpkinX - 60, pumpkinY - 20, pumpkinX - 40, pumpkinY - 60, pumpkinX - 20, pumpkinY - 20); 
+      triangle(pumpkinX + 20, pumpkinY - 20, pumpkinX + 40, pumpkinY - 60, pumpkinX + 60, pumpkinY - 20); 
+      triangle(pumpkinX - 20, pumpkinY - 10, pumpkinX, pumpkinY - 40, pumpkinX + 20, pumpkinY - 10);
+      arc(pumpkinX, pumpkinY + 20, 70, 80, PI / 6, 5 * PI / 6, CHORD); 
+
+      fill(80, 50, 20);
+      rect(pumpkinX - 10, pumpkinY - 90, 20, 40, 10);
+
+    // code for the "time of day"
+    //if (keyIsDown(DOWN_ARROW) == true) {
+      //  alert("helloooo?");
+  }
+
+  function keyPressed(){
+    if (keyCode === DOWN_ARROW) {
+      red -= 5;
+      green -= 5;
+      blue -= 5;
+    }
+  }
+    
+  </script>
 </body>
 </html>
