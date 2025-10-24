@@ -1,6 +1,5 @@
 # P5.js-review
-- update punkin to use variable 
-    e.g
-    pumpkinX , pumpkinY
-- more shapes ( ovals ) to make the cloud, CLOUDIER..
+-The cloud and pumpkin color should change when the down key is pressed.
+-variables are needed for colors
+- Extension task: make the colors come back to daylight
 - 
