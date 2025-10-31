@@ -16,6 +16,9 @@
     let red = 100;
     let green = 180;
     let blue = 255;
+    let pr = 0;
+    let pg = 0;
+    let pb = 0;
 
     function setup() {
       createCanvas(1000, 1000);
@@ -61,7 +64,7 @@
       ellipse(pumpkinX + 40, pumpkinY, 80, 150);
       ellipse(pumpkinX, pumpkinY, 100, 160);
 
-      fill(0); 
+      fill(pr,pg, pb); 
       triangle(pumpkinX - 60, pumpkinY - 20, pumpkinX - 40, pumpkinY - 60, pumpkinX - 20, pumpkinY - 20); 
       triangle(pumpkinX + 20, pumpkinY - 20, pumpkinX + 40, pumpkinY - 60, pumpkinX + 60, pumpkinY - 20); 
       triangle(pumpkinX - 20, pumpkinY - 10, pumpkinX, pumpkinY - 40, pumpkinX + 20, pumpkinY - 10);
@@ -80,6 +83,19 @@
       red -= 5;
       green -= 5;
       blue -= 5;
+
+      pr += 10;
+      pg+= 10;
+      pb+= 1;
+    }
+    if (keyCode === UP_ARROW) {
+      red += 5;
+      green += 5;
+      blue += 5;
+
+      pr -= 10;
+      pg -= 10;
+      pb -= 10;
     }
   }
     
